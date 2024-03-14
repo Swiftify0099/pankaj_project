@@ -7,10 +7,10 @@ import catgoryRouts from "./routes/categoryRouts.js"
 import connectDB from "./db.js";
 import authRoutes from "./routes/authRoute.js";
 import cors from "cors"
-import path from "path";
 import { fileURLToPath } from "url";
+import path from "path";
 //configure env
-dotenv.config();
+
  const orrgen={
   "origin": "*",
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
@@ -19,6 +19,9 @@ dotenv.config();
 }
 
 
+dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname =path.dirname(__filename)
 //databse config
 connectDB();
 
@@ -26,14 +29,13 @@ connectDB();
 
 //rest object
 const app = express();
-//Fix  es 6 file configetsation
-const __filename = fileURLToPath(import.meta.url);
+
 
 //middelwares
 app.use(cors(orrgen))
 app.use(express.json());
 app.use(morgan("dev"));
-
+app.use(express.static(path.join(__dirname,"./client/build")))
 //routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category",catgoryRouts);
@@ -42,7 +44,7 @@ app.use('/api/v1/product',productRouter);
 
 //rest api
 app.use("*", function  (req, res)  {
-  res.sendFile(path.join(__filename,'./client/build/index.html'));
+  res.sendFile(path.join(__dirname,'./client/build/index.html'));
 });
 
 
