@@ -26,12 +26,14 @@ connectDB();
 
 //rest object
 const app = express();
-
+//Fix  es 6 file configetsation
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname( __dirname)
 //middelwares
 app.use(cors(orrgen))
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(express.static(__dirname,'./client/build/'))
+
 //routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category",catgoryRouts);
@@ -43,9 +45,7 @@ app.use("*", function  (req, res)  {
   res.sendFile(path.join(__dirname,'./client/build/index.html'));
 });
 
-//Fix  es 6 file configetsation
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname( __dirname)
+
 //PORT
 const PORT = process.env.PORT || 8080;
 
