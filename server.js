@@ -23,7 +23,7 @@ dotenv.config();
 connectDB();
 //Fix  es 6 file configetsation
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname( __dirname)
+
 
 //rest object
 const app = express();
