@@ -28,7 +28,7 @@ connectDB();
 const app = express();
 //Fix  es 6 file configetsation
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname( __dirname)
+
 //middelwares
 app.use(cors(orrgen))
 app.use(express.json());
@@ -42,7 +42,7 @@ app.use('/api/v1/product',productRouter);
 
 //rest api
 app.use("*", function  (req, res)  {
-  res.sendFile(path.join(__dirname,'./client/build/index.html'));
+  res.sendFile(path.join(__filename,'./client/build/index.html'));
 });
 
 
