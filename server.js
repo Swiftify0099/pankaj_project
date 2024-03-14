@@ -18,11 +18,12 @@ dotenv.config();
   "optionsSuccessStatus": 204
 }
 
-
-//databse config
-connectDB();
 //Fix  es 6 file configetsation
 const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname( __dirname)
+//databse config
+connectDB();
+
 
 
 //rest object
