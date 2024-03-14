@@ -18,9 +18,7 @@ dotenv.config();
   "optionsSuccessStatus": 204
 }
 
-//Fix  es 6 file configetsation
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname( __dirname)
+
 //databse config
 connectDB();
 
@@ -45,6 +43,9 @@ app.use("*", function  (req, res)  {
   res.sendFile(path.join(__dirname,'./client//build/index.html'));
 });
 
+//Fix  es 6 file configetsation
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname( __dirname)
 //PORT
 const PORT = process.env.PORT || 8080;
 
