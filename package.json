@@ -1,0 +1,36 @@
+{
+  "name": "online",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ./client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "pankaj yewale",
+  "license": "Pai.pankaj_yewale",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "braintree": "^3.21.0",
+    "colors": "^1.4.0",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.4",
+    "express": "^4.18.2",
+    "express-formidable": "^1.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.1.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.3",
+    "react-toastify": "^10.0.4",
+    "slugify": "^1.6.6",
+    "sweetalert2": "^11.6.13"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
+}
